@@ -1,11 +1,14 @@
 from sensor.configuration.mongo_db_connection import MongoDBClient
 from sensor.logger import logging
+from sensor.pipeline.training_pipeline import TrainPipeline
 
 
-logging.info("this is first log")
-print('successs')
 
-# if __name__=='__main__':
-#     mongodb_client = MongoDBClient()
-#     print("collection name: ",mongodb_client.database.list_collection_names())
-#     # mongodb_client.client.close()
+# logging.info("this is first log")
+# print('successs')
+
+if __name__=='__main__':
+    training_pipeline = TrainPipeline()
+    training_pipeline.run_pipeline()
+
+    # 3.00     
