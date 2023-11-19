@@ -27,9 +27,6 @@ class MongoDBClient:
         except Exception as e:
             raise SensorException(e,sys)
 
-if __name__=="__main__":
-    c = MongoDBClient()
-    # print(c.database_name)
 
 
 
