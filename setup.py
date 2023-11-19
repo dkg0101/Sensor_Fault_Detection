@@ -32,5 +32,3 @@ setup (
 )
 
 
-# if __name__ == "__main__":
-#     requirements_list = get_requirements_list()
