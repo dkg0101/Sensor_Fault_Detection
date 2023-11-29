@@ -17,11 +17,8 @@ class MongoDBClient:
                 logging.info("Connecting  to MongoDBClient... ")
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url,tlsCAFile=ca)
             self.client =MongoDBClient.client
-            print(self.client)
             self.database = self.client[database_name]
-            print(self.database)
             self.database_name = database_name
-            print(self.database_name)
             logging.info(f"Connected database: '{self.database_name}'")
 
         except Exception as e:
