@@ -14,6 +14,8 @@ PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 MODEL_FILE_NAME = "model.pkl"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 SCHEMA_DROP_COLS = "drop_columns"
+SAVED_MODEL_DIR =os.path.join("saved_models")
+
 
 
 """
@@ -65,4 +67,6 @@ MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
 MODEL_EVALUATION_REPORT_NAME= "report.yaml"
 
 
+#Model pusher related constants
 MODEL_PUSHER_DIR_NAME = "model_pusher"
+MODEL_PUSHER_SAVED_MODEL_DIR = SAVED_MODEL_DIR

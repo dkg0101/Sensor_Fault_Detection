@@ -10,6 +10,7 @@ from sensor.ml.model.estimator import ModelResolver
 from sensor.constant.training_pipeline import TARGET_COLUMN
 from sensor.ml.model.estimator import TargetValueMapping
 import pandas  as  pd
+
 class ModelEvaluation:
 
 
@@ -46,6 +47,7 @@ class ModelEvaluation:
 
 
             if not model_resolver.is_model_exists():
+                logging.info("No existing model found, accepting current model")
                 model_evaluation_artifact = ModelEvaluationArtifact(
                     is_model_accepted=is_model_accepted, 
                     improved_accuracy=None, 
@@ -55,7 +57,8 @@ class ModelEvaluation:
                     best_model_metric_artifact=None)
                 logging.info(f"Model evaluation artifact: {model_evaluation_artifact}")
                 return model_evaluation_artifact
-
+            
+            logging.info('comparing best model with trained model')
             latest_model_path = model_resolver.get_best_model_path()
             latest_model = load_object(file_path=latest_model_path)
             train_model = load_object(file_path=train_model_file_path)
