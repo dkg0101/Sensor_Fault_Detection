@@ -6,7 +6,7 @@ from sensor.entity.config_entity import ModelTrainerConfig
 import os,sys
 from xgboost import XGBClassifier
 from sensor.ml.metric.classification_metric import get_classification_score
-from sensor.ml.model import SensorModel
+from sensor.ml.model.estimator import SensorModel
 from sensor.utils.main_utils import save_object,load_object
 
 class ModelTrainer:
@@ -70,6 +70,7 @@ class ModelTrainer:
             model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
             os.makedirs(model_dir_path,exist_ok=True)
             sensor_model = SensorModel(preprocessor=preprocessor,model=model)
+            logging.info('Saving trained model object')
             save_object(self.model_trainer_config.trained_model_file_path, obj=sensor_model)
 
             #model trainer artifact
